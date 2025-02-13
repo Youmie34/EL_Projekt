@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <time.h>
 
 #include "libgpiod.h"
 
@@ -17,6 +19,15 @@ struct thread_data
     int thread_num;
     gpiod_line_s* line;
 };
+
+void schlafe(int sec, int nsec)
+{
+    // 1000 nano sec = 1 micro Sec
+    struct timespec ts;
+    ts.tv_sec = sec; // Sekunden
+    ts.tv_nsec = nsec; // Nanosekunden (10 Millisekunden = 10.000.000 Nanosekunden)
+    nanosleep(&ts, NULL);
+}
 
 // Thread function
 void* thread_function(void* arg) {
@@ -29,6 +40,23 @@ void* thread_function(void* arg) {
         set_gpio(thread_data.line, 1);
         // Set GPIO line to low
         set_gpio(thread_data.line, 0);
+    }
+}
+
+// Thread function
+void* thread_function2(void* arg) {
+    struct thread_data thread_data = *((struct thread_data*)arg);
+    printf("Hello from thread %d\n", thread_data.thread_num);
+
+    for(;;)
+    {
+        // Set GPIO line to high
+        set_gpio(thread_data.line, 1);
+        schlafe(0,1000);
+
+        // Set GPIO line to low
+        set_gpio(thread_data.line, 0);
+        schlafe(0,1000);
     }
 }
 
@@ -53,7 +81,7 @@ int main() {
     thread2_args.thread_num = 2;
     thread2_args.line = init_gpio("gpiochip0", 81);
 
-    if (pthread_create(&thread2, NULL, thread_function, (void*)&thread2_args) != 0) {
+    if (pthread_create(&thread2, NULL, thread_function2, (void*)&thread2_args) != 0) {
         perror("Failed to create thread 2");
         return 1;
     }
