@@ -13,6 +13,8 @@
 
 #include "libgpiod.h"
 
+int arr[10] = {0,1,1,1,0,0,0,1,1,0};
+
 // Structure to hold thread data
 struct thread_data
 {
@@ -34,12 +36,35 @@ void* thread_function(void* arg) {
     struct thread_data thread_data = *((struct thread_data*)arg);
     printf("Hello from thread %d\n", thread_data.thread_num);
 
+    int anzahl = 0;
     for(;;)
     {
-        // Set GPIO line to high
-        set_gpio(thread_data.line, 1);
-        // Set GPIO line to low
-        set_gpio(thread_data.line, 0);
+        if(anzahl % 2 == 0)
+        {
+            // Set GPIO line to high
+            schlafe(0,300000);
+            set_gpio(thread_data.line, 1);
+
+            schlafe(0,200000);
+
+            // Set GPIO line to low
+            set_gpio(thread_data.line, 0);
+            schlafe(0,300000);
+        } else
+        {
+            // Set GPIO line to high
+            schlafe(0,200000);
+            set_gpio(thread_data.line, 1);
+
+            schlafe(0,400000);
+
+            // Set GPIO line to low
+            set_gpio(thread_data.line, 0);
+            schlafe(0,200000);
+        }
+
+        anzahl++;
+
     }
 }
 
@@ -48,15 +73,37 @@ void* thread_function2(void* arg) {
     struct thread_data thread_data = *((struct thread_data*)arg);
     printf("Hello from thread %d\n", thread_data.thread_num);
 
+    int anzahl = 0;
+
     for(;;)
     {
-        // Set GPIO line to high
-        set_gpio(thread_data.line, 1);
-        schlafe(0,1000);
+        if(arr[0] == 0)
+        {
+            // Set GPIO line to high
+            schlafe(0,300000);
+            set_gpio(thread_data.line, 1);
 
-        // Set GPIO line to low
-        set_gpio(thread_data.line, 0);
-        schlafe(0,1000);
+            schlafe(0,200000);
+
+            // Set GPIO line to low
+            set_gpio(thread_data.line, 0);
+            schlafe(0,300000);
+        } else
+        {
+            // Set GPIO line to high
+            schlafe(0,200000);
+            set_gpio(thread_data.line, 1);
+
+            schlafe(0,400000);
+
+            // Set GPIO line to low
+            set_gpio(thread_data.line, 0);
+            schlafe(0,200000);
+        }
+        if (anzahl < 10)
+        {
+            anzahl++;
+        }
     }
 }
 
