@@ -8,13 +8,7 @@
 #include <semaphore.h>
 #include <sys/types.h>
 #include <sys/wait.h> // Für wait()
-#include "prozess_2.h"
-#include "helper.h"
-
-#define SHM_SIZE 1024
-// #define SHM_Sensor_1 "/shared_memory_Sensor_1"
-#define SHM_Sensor_2 "/shared_memory_Sensor_2"
-#define SEM_Prozess_2 "/SEM_Prozess_2"
+#include "../header/prozess_1.h"
 
 void prozess2()
 {
@@ -45,7 +39,7 @@ void prozess2()
     }
 
     // 3. Shared Memory in den Adressraum mappen als int
-    void *shm_ptr2 = (int *)mmap(0, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
+    int *shm_ptr2 = (int *)mmap(0, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
     if (shm_ptr2 == MAP_FAILED)
     {
         perror("mmap");
@@ -70,7 +64,6 @@ void prozess2()
         struct timespec ts = {0, 100000000}; // 1 Millisekunde
         nanosleep(&ts, NULL);
     }
-    // sem_post(sem2);
 
     // 5. Shared Memory entmappen und schließen
     munmap(shm_ptr2, SHM_SIZE);

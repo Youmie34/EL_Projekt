@@ -5,23 +5,7 @@
 #include <sys/mman.h>
 #include <unistd.h>
 #include <semaphore.h>
-#include "prozess_1.h"
-#include "helper.h"
-
-#define SHM_SIZE 1024
-#define SHM_Sensor_1 "/shared_memory_Sensor_1"
-#define SEM_Prozess_1 "/SEM_Prozess_1"
-
-char intInChar(int);
-
-void sleep_custom(int sec, int nsec)
-{
-    // 1000 nano sec = 1 micro Sec
-    struct timespec ts;
-    ts.tv_sec = sec;   // Sekunden
-    ts.tv_nsec = nsec; // Nanosekunden (10 Millisekunden = 10.000.000 Nanosekunden)
-    nanosleep(&ts, NULL);
-}
+#include "../header/prozess_1.h"
 
 void prozess1()
 {
@@ -43,7 +27,7 @@ void prozess1()
     }
 
     // 3. Shared Memory in den Adressraum mappen
-    void *shm_ptr = (int *)mmap(0, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
+    int *shm_ptr = (int *)mmap(0, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
     if (shm_ptr == MAP_FAILED)
     {
         perror("mmap");
