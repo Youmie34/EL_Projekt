@@ -10,7 +10,7 @@ struct thread_data
 };
 
 // Thread function
-// TODO: add code like in thread_function2
+// TODO: implement code for clock
 void *thread_function(void *arg)
 {
     struct thread_data thread_data = *((struct thread_data *)arg);

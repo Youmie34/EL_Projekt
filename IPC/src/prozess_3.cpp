@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include "../header/prozess_3.h"
 
-int message[SIZE_MESSAGE];
+uint8_t message[SIZE_MESSAGE];
 
 void decimalToBinary(uint8_t *array, int startIndex, int decimalNumber)
 {
@@ -20,7 +20,7 @@ void decimalToBinary(uint8_t *array, int startIndex, int decimalNumber)
     }
 }
 
-void init_message()
+void init_message(int *shm_ptr, int *shm_ptr2)
 {
     // SendeID 0X99 1001 1001 8 Bit
     message[0] = 1;
@@ -85,7 +85,7 @@ void prozess3()
     }
 
     // 2. Shared Memory in den Adressraum mappen (Prozess 1)
-    void *shm_ptr = (int *)mmap(0, SHM_SIZE, PROT_READ, MAP_SHARED, shm_fd, 0);
+    int *shm_ptr = (int *)mmap(0, SHM_SIZE, PROT_READ, MAP_SHARED, shm_fd, 0);
     if (shm_ptr == MAP_FAILED)
     {
         perror("mmap");
@@ -93,7 +93,7 @@ void prozess3()
     }
 
     // 2. Shared Memory in den Adressraum mappen (Prozess 2)
-    void *shm_ptr2 = (int *)mmap(0, SHM_SIZE, PROT_READ, MAP_SHARED, shm_fd2, 0);
+    int *shm_ptr2 = (int *)mmap(0, SHM_SIZE, PROT_READ, MAP_SHARED, shm_fd2, 0);
     if (shm_ptr2 == MAP_FAILED)
     {
         perror("mmap");
@@ -102,7 +102,7 @@ void prozess3()
     // sem_post(sem);
 
     // TODO: Message inistialisieren
-    void init_message();
+    init_message(shm_ptr, shm_ptr2);
 
     // message an gpio_control weiterleiten
     control_gpios(message, SIZE_MESSAGE);
