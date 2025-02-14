@@ -1,3 +1,11 @@
+/**
+ * @file gpio_control.h
+ * @brief this program creates multiple threads to control GPIO lines using the lipgpiod library
+ *
+ * @copyright Copyright (c) 2025
+ *
+ */
+
 #ifndef __GPIO_CONTROL__
 #define __GPIO_CONTROL__
 

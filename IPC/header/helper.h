@@ -1,3 +1,11 @@
+/**
+ * @file helper.h
+ * @brief THis program offers global variables and functions.
+ *
+ * @copyright Copyright (c) 2025
+ *
+ */
+
 #ifndef __helper__
 #define __helper__
 

@@ -1,3 +1,10 @@
+/**
+ * @file prozess_1.h
+ * @brief process that writes random numbers in the SHM
+ * @copyright Copyright (c) 2025
+ *
+ */
+
 #ifndef __Prozess_1__
 #define __Prozess_1__
 
