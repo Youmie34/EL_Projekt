@@ -7,7 +7,7 @@
 #define SIZE_MESSAGE 40
 
 // Sebastian
-void prozess3(int *shm_ptr, int *shm_ptr2);
+void prozess3();
 // Caroline
 void init_message(int *shm_ptr, int *shm_ptr2);
 void decimalToBinary(uint8_t *array, int startIndex, int decimalNumber);

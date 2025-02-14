@@ -7,17 +7,6 @@
 #include <semaphore.h>
 #include "../header/prozess_1.h"
 
-char intInChar(int);
-
-void sleep_custom(int sec, int nsec)
-{
-    // 1000 nano sec = 1 micro Sec
-    struct timespec ts;
-    ts.tv_sec = sec;   // Sekunden
-    ts.tv_nsec = nsec; // Nanosekunden (10 Millisekunden = 10.000.000 Nanosekunden)
-    nanosleep(&ts, NULL);
-}
-
 void prozess1()
 {
     std::cout << "Prozess 1 Start" << std::endl;

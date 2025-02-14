@@ -11,6 +11,7 @@
 #include <string.h>
 #include "helper.h"
 #include "libgpiod.h"
+#include "prozess_3.h"
 
 extern int senden;
 
@@ -22,6 +23,6 @@ struct thread_data
 
 void *thread_function(void *arg);
 void *thread_function2(void *arg);
-void control_gpios(int *message, int size);
+int control_gpios(int *message, int size);
 
 #endif /*__GPIO_CONTROL__*/

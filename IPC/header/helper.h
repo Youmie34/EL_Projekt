@@ -11,5 +11,6 @@
 #define SEM_Prozess_2 "/SEM_Prozess_2"
 
 int readSensorValue(const char *shm_name);
+void sleep_custom(int sec, int nsec);
 
 #endif /*__helper__*/
