@@ -10,9 +10,9 @@
 #include <unistd.h>
 #include "../header/prozess_3.h"
 
-uint8_t message[SIZE_MESSAGE];
+int message[SIZE_MESSAGE];
 
-void decimalToBinary(uint8_t *array, int startIndex, int decimalNumber)
+void decimalToBinary(int *array, int startIndex, int decimalNumber)
 {
     for (int i = 0; i < 8; i++)
     {

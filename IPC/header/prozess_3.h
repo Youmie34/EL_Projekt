@@ -6,8 +6,10 @@
 
 #define SIZE_MESSAGE 40
 
-void prozess3();
-void init_message();
+// Sebastian
+void prozess3(int *shm_ptr, int *shm_ptr2);
+// Caroline
+void init_message(int *shm_ptr, int *shm_ptr2);
 void decimalToBinary(uint8_t *array, int startIndex, int decimalNumber);
 
 extern int message[];

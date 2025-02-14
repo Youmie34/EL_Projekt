@@ -1,5 +1,8 @@
 # EL_Projekt
 
+Architektur:
+
+
 Protokoll (40 bit min): 
 
 - SendeID: 10011001 (8 bit)
