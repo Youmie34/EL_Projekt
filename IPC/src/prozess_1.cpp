@@ -5,12 +5,7 @@
 #include <sys/mman.h>
 #include <unistd.h>
 #include <semaphore.h>
-#include "prozess_1.h"
-#include "helper.h"
-
-#define SHM_SIZE 1024
-#define SHM_Sensor_1 "/shared_memory_Sensor_1"
-#define SEM_Prozess_1 "/SEM_Prozess_1"
+#include "../header/prozess_1.h"
 
 char intInChar(int);
 
@@ -43,7 +38,7 @@ void prozess1()
     }
 
     // 3. Shared Memory in den Adressraum mappen
-    void *shm_ptr = (int *)mmap(0, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
+    int *shm_ptr = (int *)mmap(0, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
     if (shm_ptr == MAP_FAILED)
     {
         perror("mmap");
