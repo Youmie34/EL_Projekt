@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/mnt/c/Users/hp Laptop/Documents/UNI/Betriebssysteme/Embeded Linux/EL_Projekt/IPC/src/libgpiod.c" "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/libgpiod.c.o" "gcc" "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/libgpiod.c.o.d"
   "/mnt/c/Users/hp Laptop/Documents/UNI/Betriebssysteme/Embeded Linux/EL_Projekt/IPC/main.cpp" "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/main.cpp.o" "gcc" "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/main.cpp.o.d"
   "/mnt/c/Users/hp Laptop/Documents/UNI/Betriebssysteme/Embeded Linux/EL_Projekt/IPC/src/gpio_control.cpp" "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/gpio_control.cpp.o" "gcc" "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/gpio_control.cpp.o.d"
   "/mnt/c/Users/hp Laptop/Documents/UNI/Betriebssysteme/Embeded Linux/EL_Projekt/IPC/src/helper.cpp" "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/helper.cpp.o" "gcc" "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/helper.cpp.o.d"

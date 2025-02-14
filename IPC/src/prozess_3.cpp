@@ -20,6 +20,23 @@ void decimalToBinary(int *array, int startIndex, int decimalNumber)
     }
 }
 
+unsigned int calculateCRC(int *message, int length)
+{
+    unsigned int crc = 0xFFFFFFFF;
+    for (int i = 0; i < length; i++)
+    {
+        crc ^= message[i];
+        for (int j = 0; j < 8; j++)
+        {
+            if (crc & 1)
+                crc = (crc >> 1) ^ 0xEDB88320;
+            else
+                crc >>= 1;
+        }
+    }
+    return crc ^ 0xFFFFFFFF;
+}
+
 void init_message(int *shm_ptr, int *shm_ptr2)
 {
     // SendeID 0X99 1001 1001 8 Bit
@@ -62,6 +79,11 @@ void init_message(int *shm_ptr, int *shm_ptr2)
 
     // Ende der Sensordaten ist bei message[31]
     // TODO: add CRC, CRC starts at message[32]
+    unsigned int crc = calculateCRC(message, 32);
+    for (int i = 0; i < 32; i++)
+    {
+        message[32 + i] = (crc >> (31 - i)) & 1;
+    }
 }
 
 void prozess3()

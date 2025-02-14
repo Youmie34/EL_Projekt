@@ -201,6 +201,30 @@ IPC/src/helper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmbeddedLinuxProjekt.dir/build.make CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/helper.cpp.s
 .PHONY : IPC/src/helper.cpp.s
 
+IPC/src/libgpiod.o: IPC/src/libgpiod.c.o
+.PHONY : IPC/src/libgpiod.o
+
+# target to build an object file
+IPC/src/libgpiod.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmbeddedLinuxProjekt.dir/build.make CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/libgpiod.c.o
+.PHONY : IPC/src/libgpiod.c.o
+
+IPC/src/libgpiod.i: IPC/src/libgpiod.c.i
+.PHONY : IPC/src/libgpiod.i
+
+# target to preprocess a source file
+IPC/src/libgpiod.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmbeddedLinuxProjekt.dir/build.make CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/libgpiod.c.i
+.PHONY : IPC/src/libgpiod.c.i
+
+IPC/src/libgpiod.s: IPC/src/libgpiod.c.s
+.PHONY : IPC/src/libgpiod.s
+
+# target to generate assembly for a file
+IPC/src/libgpiod.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmbeddedLinuxProjekt.dir/build.make CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/libgpiod.c.s
+.PHONY : IPC/src/libgpiod.c.s
+
 IPC/src/prozess_1.o: IPC/src/prozess_1.cpp.o
 .PHONY : IPC/src/prozess_1.o
 
@@ -291,6 +315,9 @@ help:
 	@echo "... IPC/src/helper.o"
 	@echo "... IPC/src/helper.i"
 	@echo "... IPC/src/helper.s"
+	@echo "... IPC/src/libgpiod.o"
+	@echo "... IPC/src/libgpiod.i"
+	@echo "... IPC/src/libgpiod.s"
 	@echo "... IPC/src/prozess_1.o"
 	@echo "... IPC/src/prozess_1.i"
 	@echo "... IPC/src/prozess_1.s"
