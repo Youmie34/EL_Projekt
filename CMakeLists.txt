@@ -12,7 +12,7 @@ include_directories(${PROJECT_SOURCE_DIR}/IPC/header)
 
 # Alle Quelldateien auflisten
 set(SOURCES
-    main.c
+    IPC/main.cpp
     IPC/src/prozess_1.cpp
     IPC/src/prozess_2.cpp
     IPC/src/prozess_3.cpp
@@ -24,3 +24,4 @@ add_executable(EmbeddedLinuxProjekt ${SOURCES})
 
 # Erforderliche Bibliotheken hinzufügen
 target_link_libraries(EmbeddedLinuxProjekt pthread gpiod)
+
