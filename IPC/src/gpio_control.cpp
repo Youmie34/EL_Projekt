@@ -3,8 +3,6 @@
 
 int senden = 0;
 
-
-
 // Thread function
 // TODO: implement code for clock
 void *thread_function(void *arg)
