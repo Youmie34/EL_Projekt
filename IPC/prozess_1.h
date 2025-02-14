@@ -1,8 +1,11 @@
 #ifndef __Prozess_1__
 #define __Prozess_1__
 
-void prozess1();
-char intInChar(int i);
+#include "helper.h"
 
+void prozess1();
+/**
+ * @brief creates 8-bit random number (0-255)
+ */
 
 #endif /*__Prozess_1__*/

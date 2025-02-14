@@ -10,16 +10,15 @@
 
 #define SHM_SIZE 1024
 #define SHM_Sensor_1 "/shared_memory_Sensor_1"
-//#define SHM_Sensor_2 "/shared_memory_Sensor_2"
 #define SEM_Prozess_1 "/SEM_Prozess_1"
 
 char intInChar(int);
 
-void schlafe(int sec, int nsec)
+void sleep_custom(int sec, int nsec)
 {
     // 1000 nano sec = 1 micro Sec
     struct timespec ts;
-    ts.tv_sec = sec; // Sekunden
+    ts.tv_sec = sec;   // Sekunden
     ts.tv_nsec = nsec; // Nanosekunden (10 Millisekunden = 10.000.000 Nanosekunden)
     nanosleep(&ts, NULL);
 }
@@ -44,7 +43,7 @@ void prozess1()
     }
 
     // 3. Shared Memory in den Adressraum mappen
-    void *shm_ptr = mmap(0, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
+    void *shm_ptr = (int *)mmap(0, SHM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
     if (shm_ptr == MAP_FAILED)
     {
         perror("mmap");
@@ -55,12 +54,14 @@ void prozess1()
 
     srand(time(NULL));
 
-    //for (int i = 0; i < 10; i++)
-    for(;;)
+    // for (int i = 0; i < 10; i++)
+    for (;;)
     {
-        int random_number = rand() % 1000; // Zufallszahl zwischen 0 und 999
 
-        snprintf((char *)shm_ptr, SHM_SIZE, "%d", random_number);
+        int random_number = rand() % 256; // Zufallszahl zwischen 0 und 255
+        // CHANGED
+        *shm_ptr = random_number; // Direkt als Integer schreiben
+        // snprintf((char *)shm_ptr, SHM_SIZE, "%d", random_number);
         printf("Prozess 1 gespeichert: %d\n", random_number);
         struct timespec ts = {0, 100000000}; // 1 Millisekunde
         nanosleep(&ts, NULL);

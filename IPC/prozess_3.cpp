@@ -19,7 +19,6 @@
 void prozess3()
 {
     std::cout << "Prozess 3 Start" << std::endl;
-    
 
     // 1. Shared Memory öffnen
     int shm_fd = shm_open(SHM_Sensor_1, O_RDONLY, 0666);
@@ -38,7 +37,7 @@ void prozess3()
     }
 
     // 2. Shared Memory in den Adressraum mappen
-    void *shm_ptr = mmap(0, SHM_SIZE, PROT_READ, MAP_SHARED, shm_fd, 0);
+    void *shm_ptr = (int *)mmap(0, SHM_SIZE, PROT_READ, MAP_SHARED, shm_fd, 0);
     if (shm_ptr == MAP_FAILED)
     {
         perror("mmap");
@@ -46,40 +45,40 @@ void prozess3()
     }
 
     // 2. Shared Memory in den Adressraum mappen
-    void *shm_ptr2 = mmap(0, SHM_SIZE, PROT_READ, MAP_SHARED, shm_fd2, 0);
+    void *shm_ptr2 = (int *)mmap(0, SHM_SIZE, PROT_READ, MAP_SHARED, shm_fd2, 0);
     if (shm_ptr2 == MAP_FAILED)
     {
         perror("mmap");
         exit(1);
     }
-    //sem_post(sem);
+    // sem_post(sem);
 
     // for(int i = 0; i < 10; i++)
-    for(;;)
+    for (;;)
     {
         printf("Prozess 3\n");
         // 3. Daten lesen
-        //sem_wait(sem);
-        printf("Gelesene Daten 1: %s\n", (char *)shm_ptr);
-        //sem_post(sem);
+        // sem_wait(sem);
+        printf("Gelesene Daten 1: %d\n", shm_ptr);
+        // sem_post(sem);
 
         // 3. Daten lesen
-        //sem_wait(sem2);
-        printf("Gelesene Daten 2: %s\n", (char *)shm_ptr2);
-        //sem_post(sem2);
+        // sem_wait(sem2);
+        printf("Gelesene Daten 2: %d\n", shm_ptr2);
+        // sem_post(sem2);
         printf("\n");
         struct timespec ts = {0, 100000000}; // 1 Millisekunde
         nanosleep(&ts, NULL);
     }
 
-    // 4. Shared Memory entmappen und schließen
+        // 4. Shared Memory entmappen und schließen
     munmap(shm_ptr, SHM_SIZE);
     close(shm_fd);
 
     // Optional: Shared Memory löschen
     shm_unlink(SHM_Sensor_1);
 
-        // 4. Shared Memory entmappen und schließen
+    // 4. Shared Memory entmappen und schließen
     munmap(shm_ptr2, SHM_SIZE);
     close(shm_fd2);
 
