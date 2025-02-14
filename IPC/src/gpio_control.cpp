@@ -1,13 +1,9 @@
 #include "../header/gpio_control.h"
+#include "../header/helper.h"
 
 int senden = 0;
 
-// Structure to hold thread data
-struct thread_data
-{
-    int thread_num;
-    gpiod_line_s *line;
-};
+
 
 // Thread function
 // TODO: implement code for clock

@@ -17,6 +17,7 @@ set(SOURCES
     IPC/src/prozess_2.cpp
     IPC/src/prozess_3.cpp
     IPC/src/helper.cpp
+    IPC/src/gpio_control.cpp
 )
 
 # Executable erstellen

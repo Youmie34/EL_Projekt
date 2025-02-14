@@ -172,4 +172,5 @@ CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/prozess_3.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/string.h \
  /usr/include/strings.h \
  /mnt/c/Users/hp\ Laptop/Documents/UNI/Betriebssysteme/Embeded\ Linux/EL_Projekt/IPC/src/../header/libgpiod.h \
- /usr/include/gpiod.h /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h
+ /usr/include/gpiod.h /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
+ /mnt/c/Users/hp\ Laptop/Documents/UNI/Betriebssysteme/Embeded\ Linux/EL_Projekt/IPC/src/../header/prozess_3.h

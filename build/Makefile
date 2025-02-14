@@ -153,6 +153,30 @@ IPC/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmbeddedLinuxProjekt.dir/build.make CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/main.cpp.s
 .PHONY : IPC/main.cpp.s
 
+IPC/src/gpio_control.o: IPC/src/gpio_control.cpp.o
+.PHONY : IPC/src/gpio_control.o
+
+# target to build an object file
+IPC/src/gpio_control.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmbeddedLinuxProjekt.dir/build.make CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/gpio_control.cpp.o
+.PHONY : IPC/src/gpio_control.cpp.o
+
+IPC/src/gpio_control.i: IPC/src/gpio_control.cpp.i
+.PHONY : IPC/src/gpio_control.i
+
+# target to preprocess a source file
+IPC/src/gpio_control.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmbeddedLinuxProjekt.dir/build.make CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/gpio_control.cpp.i
+.PHONY : IPC/src/gpio_control.cpp.i
+
+IPC/src/gpio_control.s: IPC/src/gpio_control.cpp.s
+.PHONY : IPC/src/gpio_control.s
+
+# target to generate assembly for a file
+IPC/src/gpio_control.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EmbeddedLinuxProjekt.dir/build.make CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/gpio_control.cpp.s
+.PHONY : IPC/src/gpio_control.cpp.s
+
 IPC/src/helper.o: IPC/src/helper.cpp.o
 .PHONY : IPC/src/helper.o
 
@@ -261,6 +285,9 @@ help:
 	@echo "... IPC/main.o"
 	@echo "... IPC/main.i"
 	@echo "... IPC/main.s"
+	@echo "... IPC/src/gpio_control.o"
+	@echo "... IPC/src/gpio_control.i"
+	@echo "... IPC/src/gpio_control.s"
 	@echo "... IPC/src/helper.o"
 	@echo "... IPC/src/helper.i"
 	@echo "... IPC/src/helper.s"

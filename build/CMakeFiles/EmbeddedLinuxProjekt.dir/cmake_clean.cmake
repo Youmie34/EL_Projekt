@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/main.cpp.o"
   "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/main.cpp.o.d"
+  "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/gpio_control.cpp.o"
+  "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/gpio_control.cpp.o.d"
   "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/helper.cpp.o"
   "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/helper.cpp.o.d"
   "CMakeFiles/EmbeddedLinuxProjekt.dir/IPC/src/prozess_1.cpp.o"
