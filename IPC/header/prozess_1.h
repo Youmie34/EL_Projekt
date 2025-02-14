@@ -3,6 +3,7 @@
 
 #include "helper.h"
 
+// Sebastian
 void prozess1();
 /**
  * @brief creates 8-bit random number (0-255)

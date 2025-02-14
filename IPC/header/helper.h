@@ -10,7 +10,9 @@
 #define SEM_Prozess_1 "/SEM_Prozess_1"
 #define SEM_Prozess_2 "/SEM_Prozess_2"
 
+// Caroline
 int readSensorValue(const char *shm_name);
+// Sebastian
 void sleep_custom(int sec, int nsec);
 
 #endif /*__helper__*/

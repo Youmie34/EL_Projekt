@@ -1,3 +1,0 @@
-/mnt/c/Users/hp Laptop/Documents/UNI/Betriebssysteme/Embeded Linux/EL_Projekt/build/CMakeFiles/EmbeddedLinuxProjekt.dir
-/mnt/c/Users/hp Laptop/Documents/UNI/Betriebssysteme/Embeded Linux/EL_Projekt/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/hp Laptop/Documents/UNI/Betriebssysteme/Embeded Linux/EL_Projekt/build/CMakeFiles/rebuild_cache.dir
